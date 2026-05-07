@@ -1,6 +1,9 @@
 package Vaelior.lifeStealDuels.Menus;
 
 import Vaelior.lifeStealDuels.Items.HeartItem;
+import Vaelior.lifeStealDuels.Kits.LargeHealth;
+import Vaelior.lifeStealDuels.Kits.LowHealth;
+import Vaelior.lifeStealDuels.Kits.MediumHealth;
 import Vaelior.lifeStealDuels.LifeStealDuels;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -49,7 +52,9 @@ public class KitSelectionMenu {
     {
         checkData();
         Inventory menu = Bukkit.createInventory(p, 9, "LifeSteal Kit Selector");
-        menu.setContents(inventoryData);
+
+
+        menu.setContents(inventoryData.clone());
 
         /*
         store kit as integer as kits go off the amount of hearts made
@@ -95,7 +100,19 @@ public class KitSelectionMenu {
             return(i);
         }
         return null;
-
-
+    }
+    public static void loadKit(Player p, int i)
+    {
+        if(i == 5)
+        {
+            LowHealth.loadKit(p);
+        }
+        else if(i == 10)
+        {
+            MediumHealth.loadKit(p);
+        } else if (i == 15)
+        {
+            LargeHealth.loadKit(p);
+        }
     }
 }

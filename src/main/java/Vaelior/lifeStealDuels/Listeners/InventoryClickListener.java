@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 
 public class InventoryClickListener implements Listener {
@@ -46,6 +47,28 @@ public class InventoryClickListener implements Listener {
             {
 
             }
+        }
+        //game menu
+        if(event.getView().getTitle().equalsIgnoreCase("lifesteal game selector"))
+        {
+            event.setCancelled(true);
+            try
+            {
+                Player p = (Player) event.getWhoClicked();
+                ItemStack item = event.getCurrentItem();
+                if(item.getItemMeta().getDisplayName().equalsIgnoreCase("duel que"))
+                {
+
+                }
+                else if(item.getItemMeta().getDisplayName().equalsIgnoreCase("free for all"))
+                {
+
+                }
+            } catch (Exception e) {
+
+            }
+
+
         }
     }
 }
